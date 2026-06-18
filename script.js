@@ -1,6 +1,9 @@
 const tabs = document.querySelectorAll(".tab");
 const panels = document.querySelectorAll(".fee-panel");
 
+// Remove hidden attribute from all panels on load (CSS handles visibility via is-active class)
+panels.forEach((panel) => { panel.removeAttribute("hidden"); });
+
 tabs.forEach((tab) => {
   tab.addEventListener("click", () => {
     const target = tab.dataset.tab;
@@ -12,9 +15,7 @@ tabs.forEach((tab) => {
     });
 
     panels.forEach((panel) => {
-      const isActive = panel.id === target;
-      panel.classList.toggle("is-active", isActive);
-      panel.hidden = !isActive;
+      panel.classList.toggle("is-active", panel.id === target);
     });
   });
 });

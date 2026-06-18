@@ -111,7 +111,7 @@ a {
 }
 
 .lang-btn::after {
-  display: none;
+  display: none !important;
 }
 
 .hero {
